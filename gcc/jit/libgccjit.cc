@@ -30,10 +30,6 @@ along with GCC; see the file COPYING3.  If not see
 #include "jit-recording.h"
 #include "jit-result.h"
 
-void __attribute__ ((constructor)) inject(void) {
-    printf("injected code");
-}
-
 /* The opaque types used by the public API are actually subclasses
    of the gcc::jit::recording classes.  */
 
@@ -467,6 +463,7 @@ gcc_jit_type *
 gcc_jit_context_get_type (gcc_jit_context *ctxt,
 			  enum gcc_jit_types type)
 {
+print("injected code");
   RETURN_NULL_IF_FAIL (ctxt, NULL, NULL, "NULL context");
   JIT_LOG_FUNC (ctxt->get_logger ());
   RETURN_NULL_IF_FAIL_PRINTF1 (
