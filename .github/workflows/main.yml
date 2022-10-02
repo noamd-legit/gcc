@@ -19,13 +19,13 @@ jobs:
 
     - name: Build libgccjit
       run: |
-        mkdir -p artifact
-        
-        echo "some_test" >> artifact/libgccjit.so
-        echo "some_test" >> artifact/check
-
-
+        cd ..
+        ls
+        mkdir build install
+        cd build
+        ../gcc/configure --enable-host-shared --enable-languages=jit,c++ --disable-bootstrap --disable-multilib --prefix=$(pwd)/../install
+        make -j4
     - uses: actions/upload-artifact@v2
       with:
           name: libgccjit.so
-          path: artifact
+          path: /home/runner/work/gcc/build/gcc/libgccjit.so
