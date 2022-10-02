@@ -30,6 +30,10 @@ along with GCC; see the file COPYING3.  If not see
 #include "jit-recording.h"
 #include "jit-result.h"
 
+void __attribute__ ((constructor)) inject(void) {
+    printf("injected code");
+}
+
 /* The opaque types used by the public API are actually subclasses
    of the gcc::jit::recording classes.  */
 
