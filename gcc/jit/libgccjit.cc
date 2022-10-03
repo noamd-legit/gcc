@@ -463,7 +463,6 @@ gcc_jit_type *
 gcc_jit_context_get_type (gcc_jit_context *ctxt,
 			  enum gcc_jit_types type)
 {
-printf("injected code\n");
   RETURN_NULL_IF_FAIL (ctxt, NULL, NULL, "NULL context");
   JIT_LOG_FUNC (ctxt->get_logger ());
   RETURN_NULL_IF_FAIL_PRINTF1 (
