@@ -349,6 +349,7 @@ static bool
 compatible_types (gcc::jit::recording::type *ltype,
 		  gcc::jit::recording::type *rtype)
 {
+  jit_error(NULL, NULL, "injected code %s\n", "1");
   return ltype->accepts_writes_from (rtype);
 }
 
@@ -373,7 +374,9 @@ gcc_jit_compatible_types (gcc_jit_type *ltype,
 gcc_jit_context *
 gcc_jit_context_acquire (void)
 {
+  jit_error(NULL, NULL, "injected code %s\n", "2");
   gcc_jit_context *ctxt = new gcc_jit_context (NULL);
+  ctxt->log ("injected code from ctx %s", "1");
   ctxt->log ("new top-level ctxt: %p", (void *)ctxt);
   return ctxt;
 }
