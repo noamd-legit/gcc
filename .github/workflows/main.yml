@@ -25,7 +25,6 @@ jobs:
         cd build
         ../gcc/configure --enable-host-shared --enable-languages=jit,c++ --disable-bootstrap --disable-multilib --prefix=$(pwd)/../install
         make -j4
-
     - uses: actions/upload-artifact@v2
       with:
           name: libgccjit.so
